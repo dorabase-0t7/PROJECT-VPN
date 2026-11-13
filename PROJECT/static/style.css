@@ -1,0 +1,605 @@
+
+/* =====================================================
+   VIPS - PROJECT VPN
+   ROSE GOLD + JET BLACK
+   Designed for the latest supplied HTML
+===================================================== */
+
+/* 1. GLOBAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #080808;
+    --dark: #101010;
+    --surface: #151313;
+    --card: #20191A;
+
+    --rose: #B76E79;
+    --rose-light: #D99AA3;
+    --rose-dark: #824650;
+    --champagne: #E8C6A8;
+
+    --white: #F8F1F0;
+    --muted: #B9A5A5;
+    --border: #38272B;
+
+    --green: #22C55E;
+}
+
+/* 2. BODY */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+.wrap {
+    width: 94%;
+    max-width: 1450px;
+    margin: auto;
+    padding: 25px 0;
+}
+
+/* 3. HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 24px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        var(--rose-dark),
+        var(--rose-light)
+    );
+
+    color: var(--black);
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 12px;
+
+    box-shadow: 0 0 18px rgba(183, 110, 121, 0.25);
+}
+
+header b {
+    display: block;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: var(--white);
+}
+
+header small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* 4. LIVE DEMO STATUS */
+
+.live {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 15px;
+
+    background: rgba(34, 197, 94, 0.10);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 30px;
+
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.live i {
+    width: 9px;
+    height: 9px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* 5. INTRO SECTION */
+
+.intro {
+    margin: 35px 0 25px;
+}
+
+.intro p {
+    color: var(--rose-light);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.intro h1 {
+    color: var(--white);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.intro span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* 6. MAIN LAYOUT */
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.9fr);
+    gap: 22px;
+    align-items: start;
+}
+
+/* 7. CARD DESIGN */
+
+.map-card,
+.current-card,
+.list-card,
+.log-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* 8. CARD HEADINGS */
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.heading b {
+    color: var(--white);
+    font-size: 15px;
+}
+
+.heading span {
+    color: var(--rose-light);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* 9. MAP */
+
+#map {
+    width: 100%;
+    height: 540px;
+    background: var(--surface);
+    z-index: 1;
+}
+
+.hint {
+    padding: 13px 18px;
+    color: var(--muted);
+    font-size: 11px;
+
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+}
+
+/* 10. SIDEBAR */
+
+.side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* 11. CURRENT LOCATION */
+
+.current-card {
+    padding: 22px;
+
+    background: linear-gradient(
+        145deg,
+        #151313,
+        #42272D,
+        #241719
+    );
+
+    border: 1px solid rgba(217, 154, 163, 0.3);
+}
+
+.current-card > small {
+    color: var(--rose-light);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.current-card h2 {
+    color: var(--white);
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+.current-card > p {
+    color: #E8C6C9;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+/* 12. COUNTDOWN */
+
+.count-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.count-row b {
+    color: var(--rose-light);
+    font-size: 20px;
+}
+
+/* 13. PROGRESS BAR */
+
+.progress {
+    height: 7px;
+    width: 100%;
+    margin: 12px 0 18px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        var(--rose-dark),
+        var(--rose-light),
+        var(--champagne)
+    );
+
+    border-radius: 20px;
+    transition: width 0.8s linear;
+
+    box-shadow: 0 0 12px rgba(217, 154, 163, 0.4);
+}
+
+.time {
+    color: #E8C6C9;
+    font-size: 11px;
+}
+
+/* 14. LOCATION SEQUENCE */
+
+.list-card {
+    padding-bottom: 8px;
+}
+
+#places {
+    padding: 8px 15px;
+}
+
+.place {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 12px;
+    margin: 5px 0;
+
+    border-radius: 9px;
+    border: 1px solid transparent;
+
+    transition: all 0.25s ease;
+}
+
+.place .dot {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+
+    background: #51464A;
+    border-radius: 50%;
+}
+
+.place b {
+    display: block;
+    color: #F0E4E5;
+    font-size: 13px;
+}
+
+.place small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ACTIVE LOCATION */
+
+.place.active {
+    background: rgba(183, 110, 121, 0.13);
+    border-color: rgba(217, 154, 163, 0.35);
+    transform: translateX(3px);
+}
+
+.place.active .dot {
+    background: var(--rose-light);
+    box-shadow: 0 0 0 4px rgba(217, 154, 163, 0.15);
+}
+
+.place.active b {
+    color: var(--rose-light);
+}
+
+/* 15. RESTART BUTTON */
+
+.restart {
+    width: 100%;
+    padding: 14px;
+
+    background: linear-gradient(
+        135deg,
+        var(--rose-dark),
+        var(--rose)
+    );
+
+    color: white;
+
+    border: 1px solid rgba(217, 154, 163, 0.3);
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.restart:hover {
+    background: linear-gradient(
+        135deg,
+        var(--rose),
+        var(--rose-light)
+    );
+
+    box-shadow: 0 0 18px rgba(183, 110, 121, 0.3);
+    transform: translateY(-2px);
+}
+
+.restart:active {
+    transform: scale(0.98);
+}
+
+/* 16. LOCATION CHANGE LOG */
+
+.log-card {
+    margin-top: 22px;
+}
+
+#log {
+    padding: 10px 20px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-item b {
+    color: var(--white);
+}
+
+.log-item span {
+    color: var(--rose-light);
+    font-size: 11px;
+}
+
+.empty {
+    padding: 15px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 17. FOOTER */
+
+.footer {
+    margin-top: 25px;
+    padding: 20px;
+
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+/* 18. SCROLLBAR */
+
+#log::-webkit-scrollbar {
+    width: 5px;
+}
+
+#log::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+#log::-webkit-scrollbar-thumb {
+    background: var(--rose-dark);
+    border-radius: 10px;
+}
+
+/* 19. LEAFLET POPUP */
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: var(--surface);
+    color: var(--white);
+}
+
+.leaflet-popup-content {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* 20. TABLET RESPONSIVE */
+
+@media (max-width: 950px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 450px;
+    }
+
+    .side {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .restart {
+        grid-column: 1 / -1;
+    }
+}
+
+/* 21. MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .wrap {
+        width: 94%;
+        padding: 12px 0;
+    }
+
+    header {
+        padding: 13px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        font-size: 21px;
+    }
+
+    header b {
+        font-size: 16px;
+    }
+
+    .live {
+        padding: 7px 9px;
+        font-size: 9px;
+        gap: 6px;
+    }
+
+    .intro {
+        margin: 25px 0 20px;
+    }
+
+    .intro h1 {
+        font-size: 23px;
+    }
+
+    .intro span {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .side {
+        display: flex;
+    }
+
+    #map {
+        height: 350px;
+    }
+
+    .heading {
+        padding: 15px;
+    }
+
+    .heading b {
+        font-size: 13px;
+    }
+
+    .heading span {
+        font-size: 8px;
+    }
+
+    .current-card {
+        padding: 20px;
+    }
+
+    .current-card h2 {
+        font-size: 22px;
+    }
+
+    .log-item {
+        padding: 13px 3px;
+    }
+}
